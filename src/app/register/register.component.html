@@ -1,0 +1,51 @@
+<div class="container-fluid">
+	<div class="row">
+	  <div class="col-md-6 col-md-offset-4">
+		<form (submit)="submitForm()" [formGroup]="registerForm" novalidate>
+		  <div class="form-content">
+			<h1>Register</h1>
+			<div class="row">
+			  <div class="col-md-6">
+				<input type="text" formControlName="firstName" class="sd-form-control" placeholder="First Name">
+				<span *ngIf="registerForm.controls.firstName.required && isSubmitted">REQUIRED</span>
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-md-6">
+				<input type="text" formControlName="middleName" class="sd-form-control" placeholder="Middle Name">
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-md-6">
+				<input type="text" formControlName="lastName" class="sd-form-control" placeholder="Last Name">
+				<span *ngIf="registerForm.controls.lastName.required && isSubmitted">REQUIRED</span>
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-md-6">
+				<input type="email" formControlName="email" class="sd-form-control" placeholder="Email">
+				<span *ngIf="!registerForm.controls.email.valid && isSubmitted">INVALID EMAIL</span>
+				<span *ngIf="registerForm.controls.email.required && isSubmitted">REQUIRED</span>
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-md-6">
+				<input type="password" formControlName="password" class="sd-form-control" placeholder="Password">
+				<span *ngIf="!registerForm.controls.password.valid && isSubmitted">REQUIRED</span>
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-md-6">
+				<button type="button" class="btn btn-success pull-right" [disabled]="isSubmitting" type="submit">Register</button>
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-md-6">
+				<a class="pull-left" routerLink="/login">Login</a>
+			  </div>
+			</div>
+		  </div>
+		</form>
+	  </div>
+	</div>
+  </div>
