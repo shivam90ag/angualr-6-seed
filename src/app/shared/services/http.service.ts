@@ -69,7 +69,7 @@ export class HttpService {
         if (needToken) {
             let sessionData = JSON.parse(this.cookieService.get('SessionData'));
             if (sessionData && sessionData.accessToken) {
-                httpOptions.headers.append('Authorization', 'Bearer ' + sessionData.accessToken);
+                httpOptions.headers = httpOptions.headers.append('Authorization', 'Bearer ' + sessionData.accessToken);
             }
         }
         if (data) {
